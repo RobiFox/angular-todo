@@ -1,1 +1,9 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+  display: block;
+  height: 95vh;
+  background-image: url("https://cdn.pixabay.com/photo/2022/06/07/18/28/sikkim-7249064_960_720.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}

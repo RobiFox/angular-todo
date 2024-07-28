@@ -1,0 +1,20 @@
+.card-title {
+  border: none;
+  width: 100%;
+  padding: 0.5rem 0;
+  font-size: 20px;
+}
+
+.card-title:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.card-title::placeholder {
+  color: #888;
+  font-weight: normal;
+}
+
+:host ::ng-deep .p-card {
+  background-color: #ede9e8;
+}
