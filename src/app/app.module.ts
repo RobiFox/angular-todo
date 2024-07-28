@@ -11,6 +11,7 @@ import {CardModule} from "primeng/card";
 import {InputTextModule} from "primeng/inputtext";
 import { IndividualCardComponent } from './individual-card/individual-card.component';
 import {InputTextareaModule} from "primeng/inputtextarea";
+import {DragDropModule} from "primeng/dragdrop";
 
 @NgModule({
   declarations: [
@@ -19,15 +20,16 @@ import {InputTextareaModule} from "primeng/inputtextarea";
     ListCardComponent,
     IndividualCardComponent
   ],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    AppRoutingModule,
-    Button,
-    CardModule,
-    InputTextModule,
-    InputTextareaModule
-  ],
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        AppRoutingModule,
+        Button,
+        CardModule,
+        InputTextModule,
+        InputTextareaModule,
+        DragDropModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
