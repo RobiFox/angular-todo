@@ -1,4 +1,4 @@
-<p-card [style]="{'width': '400px', 'margin': '4px'}" pDroppable>
+<p-card [style]="{'width': '400px', 'margin': '4px'}" pDroppable (onDrop)="onDrop()">
   <div class="p-card-header">
     <input type="text" pInputText placeholder="Enter title to create list" class="card-title" [value]="placeholder ? '' : title">
   </div>

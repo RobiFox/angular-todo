@@ -5,13 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import { HomeComponent } from './home/home.component';
-import {Button} from "primeng/button";
+import {Button, ButtonDirective} from "primeng/button";
 import { ListCardComponent } from './list-card/list-card.component';
 import {CardModule} from "primeng/card";
 import {InputTextModule} from "primeng/inputtext";
 import { IndividualCardComponent } from './individual-card/individual-card.component';
 import {InputTextareaModule} from "primeng/inputtextarea";
 import {DragDropModule} from "primeng/dragdrop";
+import {Ripple} from "primeng/ripple";
 
 @NgModule({
   declarations: [
@@ -20,16 +21,18 @@ import {DragDropModule} from "primeng/dragdrop";
     ListCardComponent,
     IndividualCardComponent
   ],
-    imports: [
-        BrowserModule,
-        BrowserAnimationsModule,
-        AppRoutingModule,
-        Button,
-        CardModule,
-        InputTextModule,
-        InputTextareaModule,
-        DragDropModule
-    ],
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    AppRoutingModule,
+    Button,
+    CardModule,
+    InputTextModule,
+    InputTextareaModule,
+    DragDropModule,
+    Ripple,
+    ButtonDirective
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
