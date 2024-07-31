@@ -1,9 +1,9 @@
 <p-card [style]="{'width': '400px', 'margin': '4px'}" pDroppable (onDrop)="onDrop()">
   <div class="p-card-header">
-    <input type="text" pInputText placeholder="Enter title to create list" class="card-title" [value]="model.title">
+    <input type="text" pInputText placeholder="Enter title" class="card-title" [(ngModel)]="model.title">
   </div>
   <div class="m-0">
-    <app-individual-card *ngFor="let card of model.cards" [card]="card"></app-individual-card>
+    <app-individual-card *ngFor="let card of model.cards" [model]="card"></app-individual-card>
     <button pButton pRipple style="width: 100%" class="p-button-help" icon="pi pi-plus" (mouseup)="newCard()"></button>
   </div>
 </p-card>

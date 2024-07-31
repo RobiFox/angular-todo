@@ -9,9 +9,9 @@ import {IndividualCardModel} from "./individual-card.model";
   styleUrl: './individual-card.component.css'
 })
 export class IndividualCardComponent {
-  @Input() card!: IndividualCardModel;
+  @Input() model!: IndividualCardModel;
 
-  constructor(private sharedService: SharedService, @Optional() @SkipSelf() private listCard: ListCardComponent) {}
+  constructor(private sharedService: SharedService, @Optional() @SkipSelf() public listCard: ListCardComponent) {}
 
   onDrag() {
     console.log("dragging");

@@ -29,6 +29,7 @@ export class ListCardComponent {
   }
 
   moveCardToMe(card: IndividualCardComponent, index: number) {
-
+    this.model.cards.splice(index, 0, card.model);
+    card.listCard.model.cards.splice(card.listCard.model.cards.indexOf(card.model), 1);
   }
 }

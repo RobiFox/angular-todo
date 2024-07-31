@@ -13,6 +13,7 @@ import { IndividualCardComponent } from './individual-card/individual-card.compo
 import {InputTextareaModule} from "primeng/inputtextarea";
 import {DragDropModule} from "primeng/dragdrop";
 import {Ripple} from "primeng/ripple";
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -21,18 +22,19 @@ import {Ripple} from "primeng/ripple";
     ListCardComponent,
     IndividualCardComponent
   ],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    AppRoutingModule,
-    Button,
-    CardModule,
-    InputTextModule,
-    InputTextareaModule,
-    DragDropModule,
-    Ripple,
-    ButtonDirective
-  ],
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        AppRoutingModule,
+        Button,
+        CardModule,
+        InputTextModule,
+        InputTextareaModule,
+        DragDropModule,
+        Ripple,
+        ButtonDirective,
+        FormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
