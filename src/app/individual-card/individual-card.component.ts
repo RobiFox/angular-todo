@@ -1,6 +1,7 @@
 import {Component, Input, Optional, SkipSelf} from '@angular/core';
 import {SharedService} from "../shared.service";
 import {ListCardComponent} from "../list-card/list-card.component";
+import {IndividualCardModel} from "./individual-card.model";
 
 @Component({
   selector: 'app-individual-card',
@@ -8,8 +9,7 @@ import {ListCardComponent} from "../list-card/list-card.component";
   styleUrl: './individual-card.component.css'
 })
 export class IndividualCardComponent {
-  @Input() description: string = '';
-  @Input() placeholder: boolean = false;
+  @Input() card!: IndividualCardModel;
 
   constructor(private sharedService: SharedService, @Optional() @SkipSelf() private listCard: ListCardComponent) {}
 
