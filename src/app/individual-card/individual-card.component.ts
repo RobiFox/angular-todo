@@ -18,8 +18,10 @@ export class IndividualCardComponent {
     this.sharedService.setDraggedComponent(this);
   }
 
-  onDrop() {
-    if(this.listCard === null) return;
-    this.listCard.moveCardToMe(this, 0);
+  onDrop(event: any) {
+    if(this.listCard === null || this.sharedService.currentDraggedComponent === null) return;
+    console.log("individual drop");
+    event.stopPropagation();
+    this.listCard.moveCardToMe(this.sharedService.currentDraggedComponent, this.listCard.model.cards.indexOf(this.model));
   }
 }
