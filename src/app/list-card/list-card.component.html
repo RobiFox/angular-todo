@@ -1,6 +1,6 @@
 <p-card [style]="{'width': '400px', 'margin': '4px'}" pDroppable (onDrop)="onDrop()">
   <div class="p-card-header">
-    <input type="text" pInputText placeholder="Enter title" class="card-title" [(ngModel)]="model.title">
+    <input type="text" pInputText placeholder="Enter title" class="card-title" [(ngModel)]="model.title" (ngModelChange)="table.saveToCookie()">
   </div>
   <div class="m-0">
     <app-individual-card *ngFor="let card of model.cards" [model]="card"></app-individual-card>

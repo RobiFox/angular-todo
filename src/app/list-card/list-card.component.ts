@@ -1,8 +1,8 @@
 import {Component, Input, Optional, SkipSelf} from '@angular/core';
 import {IndividualCardComponent} from "../individual-card/individual-card.component";
 import {SharedService} from "../shared.service";
-import {IndividualCardModel} from "../individual-card/individual-card.model";
 import {ListCardModel} from "./list-card.model";
+import {HomeComponent} from "../home/home.component";
 
 @Component({
   selector: 'app-list-card',
@@ -12,7 +12,7 @@ import {ListCardModel} from "./list-card.model";
 export class ListCardComponent {
   @Input() model!: ListCardModel;
 
-  constructor(private sharedService: SharedService) {}
+  constructor(private sharedService: SharedService, @Optional() @SkipSelf() public table: HomeComponent) {}
 
   onDrop() {
     console.log("card dropped here");
@@ -36,5 +36,6 @@ export class ListCardComponent {
     } else {
       this.model.cards.splice(index, 0, card.model);
     }
+    this.table.saveToCookie();
   }
 }

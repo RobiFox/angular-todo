@@ -1,5 +1,5 @@
 <p-card [style]="{'margin': '4px'}" pDraggable pDroppable (onDrag)="onDrag()" (onDrop)="onDrop($event)">
   <div class="m-0">
-    <textarea pInputTextarea placeholder="Enter description for card" class="card-title" [autoResize]="true" [(ngModel)]="model.description"></textarea>
+    <textarea pInputTextarea placeholder="Enter description for card" class="card-title" [autoResize]="true" [(ngModel)]="model.description" (ngModelChange)="table.saveToCookie()"></textarea>
   </div>
 </p-card>

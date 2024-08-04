@@ -14,6 +14,7 @@ import {InputTextareaModule} from "primeng/inputtextarea";
 import {DragDropModule} from "primeng/dragdrop";
 import {Ripple} from "primeng/ripple";
 import {FormsModule} from "@angular/forms";
+import {CookieService} from "ngx-cookie-service";
 
 @NgModule({
   declarations: [
@@ -35,7 +36,7 @@ import {FormsModule} from "@angular/forms";
         ButtonDirective,
         FormsModule
     ],
-  providers: [],
+  providers: [CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

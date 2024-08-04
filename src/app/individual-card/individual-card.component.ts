@@ -2,6 +2,7 @@ import {Component, Input, Optional, SkipSelf} from '@angular/core';
 import {SharedService} from "../shared.service";
 import {ListCardComponent} from "../list-card/list-card.component";
 import {IndividualCardModel} from "./individual-card.model";
+import {HomeComponent} from "../home/home.component";
 
 @Component({
   selector: 'app-individual-card',
@@ -11,7 +12,7 @@ import {IndividualCardModel} from "./individual-card.model";
 export class IndividualCardComponent {
   @Input() model!: IndividualCardModel;
 
-  constructor(private sharedService: SharedService, @Optional() @SkipSelf() public listCard: ListCardComponent) {}
+  constructor(private sharedService: SharedService, @Optional() @SkipSelf() public listCard: ListCardComponent, @Optional() @SkipSelf() public table: HomeComponent) {}
 
   onDrag() {
     console.log("dragging");
