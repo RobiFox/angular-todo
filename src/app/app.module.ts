@@ -16,6 +16,8 @@ import {Ripple} from "primeng/ripple";
 import {FormsModule} from "@angular/forms";
 import {CookieService} from "ngx-cookie-service";
 import {ContextMenuModule} from "primeng/contextmenu";
+import {DialogModule} from "primeng/dialog";
+import {ColorPickerModule} from "primeng/colorpicker";
 
 @NgModule({
   declarations: [
@@ -36,7 +38,9 @@ import {ContextMenuModule} from "primeng/contextmenu";
     Ripple,
     ButtonDirective,
     FormsModule,
-    ContextMenuModule
+    ContextMenuModule,
+    DialogModule,
+    ColorPickerModule
   ],
   providers: [CookieService],
   bootstrap: [AppComponent]

@@ -1,10 +1,15 @@
-<p-card [style]="{'margin': '4px'}" pDraggable pDroppable (onDrag)="onDrag()" (onDrop)="onDrop($event)" (contextmenu)="contextMenu.show($event)">
+<p-card [style]="{'margin': '4px', 'background-color': model.color ?? '#ede9e8'}" pDraggable pDroppable (onDrag)="onDrag()" (onDrop)="onDrop($event)" (contextmenu)="contextMenu.show($event)">
   <div class="m-0" style="display: flex; flex-direction: column;">
-    <textarea pInputTextarea placeholder="Enter description for card" class="card-title" [autoResize]="true"
+    <textarea pInputTextarea placeholder="Enter description for card" class="card-desc" [autoResize]="true"
               style="background: transparent none;"
+              [style]="{'background': 'transparent none', 'color': contrastingColor(model.color ?? '#ffffff')}"
               [(ngModel)]="model.description" (ngModelChange)="table.saveToCookie()"></textarea>
-    <button pButton pRipple icon="pi pi-ellipsis-h" style="align-self: flex-end; border: none; background: transparent; color: black" (click)="contextMenu.show($event)"></button>
+    <button pButton pRipple icon="pi pi-ellipsis-h" [style]="{'color': contrastingColor(model.color ?? '#ffffff')}" style="align-self: flex-end; border: none; background: transparent;" (click)="contextMenu.show($event)"></button>
   </div>
 </p-card>
 
 <p-contextMenu #contextMenu [model]="contextItems"></p-contextMenu>
+<p-dialog header="Color Picker for {{model.description}}" [(visible)]="displayColorPicker">
+  <p-colorPicker inline="true" [(ngModel)]="model.color" (ngModelChange)="listCard.table.saveToCookie()"></p-colorPicker>
+  <p>{{model.color}}</p>
+</p-dialog>

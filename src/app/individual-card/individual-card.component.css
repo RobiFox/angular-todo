@@ -1,18 +1,21 @@
-.card-title {
+:root {
+  --font-color: #ffffff;
+}
+
+.card-desc {
   border: none;
   width: 100%;
   padding: 0.5rem 0;
   font-size: 20px;
 }
 
-.card-title:focus {
+.card-desc:focus {
   outline: none;
   box-shadow: none;
 }
 
-.card-title::placeholder {
-  color: #888;
-  font-weight: normal;
+.card-desc {
+  color: var(--font-color);
 }
 
 :host ::ng-deep .p-card {
