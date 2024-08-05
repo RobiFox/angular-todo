@@ -19,6 +19,7 @@ Live demo at [todo.robi.zip](https://todo.robi.zip)
   - Reorderable list
   - Preview (like in Trello)
   - Better visuals (Dragged element follows mouse)
+  - Mobile support
 - Better text color support
   - Currently the text is barely visible when the background color's value is around 0.5
 - Better scroll bar
