@@ -1,27 +1,33 @@
 # TodoProject
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.5.
+Very simple Kanban TODO project made in Angular with PrimeNG based on Trello.
 
-## Development server
+Table is saved in cookies
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Live demo at [todo.robi.zip](https://todo.robi.zip)
+![](public/preview.png)
 
-## Code scaffolding
+## Features
+- Saving table locally
+- Multiple lists and cards
+- Drag and drop between lists
+- Colorable cards
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Missing features
+- Reorderable lists
+- Better drag and drop support
+  - Reorderable list
+  - Preview (like in Trello)
+  - Better visuals (Dragged element follows mouse)
+- Better text color support
+  - Currently the text is barely visible when the background color's value is around 0.5
+- Better scroll bar
+  - Scrollbar should be per list instead of the whole page 
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## Considered ideas
+- Multiple tables (should be easy to do)
+- Custom background image (store base64 of image in cookies?)
+- Export, import table(s)
+- Advanced (optional) cards
+  - Deadline support
+  - TODO Check List with Progress Bar
