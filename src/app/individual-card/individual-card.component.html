@@ -1,4 +1,5 @@
-<p-card [style]="{'margin': '4px'}" pDraggable pDroppable (onDrag)="onDrag()" (onDrop)="onDrop($event)">
+<p-contextMenu #contextMenu [model]="contextItems"></p-contextMenu>
+<p-card [style]="{'margin': '4px'}" pDraggable pDroppable (onDrag)="onDrag()" (onDrop)="onDrop($event)" (contextmenu)="contextMenu.show($event)">
   <div class="m-0">
     <textarea pInputTextarea placeholder="Enter description for card" class="card-title" [autoResize]="true"
               style="background: transparent none;"

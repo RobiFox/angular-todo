@@ -15,6 +15,7 @@ import {DragDropModule} from "primeng/dragdrop";
 import {Ripple} from "primeng/ripple";
 import {FormsModule} from "@angular/forms";
 import {CookieService} from "ngx-cookie-service";
+import {ContextMenuModule} from "primeng/contextmenu";
 
 @NgModule({
   declarations: [
@@ -23,19 +24,20 @@ import {CookieService} from "ngx-cookie-service";
     ListCardComponent,
     IndividualCardComponent
   ],
-    imports: [
-        BrowserModule,
-        BrowserAnimationsModule,
-        AppRoutingModule,
-        Button,
-        CardModule,
-        InputTextModule,
-        InputTextareaModule,
-        DragDropModule,
-        Ripple,
-        ButtonDirective,
-        FormsModule
-    ],
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    AppRoutingModule,
+    Button,
+    CardModule,
+    InputTextModule,
+    InputTextareaModule,
+    DragDropModule,
+    Ripple,
+    ButtonDirective,
+    FormsModule,
+    ContextMenuModule
+  ],
   providers: [CookieService],
   bootstrap: [AppComponent]
 })
