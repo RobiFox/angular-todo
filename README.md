@@ -23,7 +23,7 @@ Live demo at [todo.robi.zip](https://todo.robi.zip)
 - Better text color support
   - Currently the text is barely visible when the background color's value is around 0.5
 - Better scroll bar
-  - Scrollbar should be per list instead of the whole page 
+  - Scrollbar should be per list instead of the whole page
 
 ## Considered ideas
 - Multiple tables (should be easy to do)
@@ -32,3 +32,7 @@ Live demo at [todo.robi.zip](https://todo.robi.zip)
 - Advanced (optional) cards
   - Deadline support
   - TODO Check List with Progress Bar
+- Multiple instance support
+  - Due to the way saving works, it resaves the entirety of the current page instead of only the changes
+  - This would only be a large issue if the project supported collaborative work between multiple users
+  - To solve, save only the changes
