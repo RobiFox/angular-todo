@@ -1,8 +1,10 @@
-<p-contextMenu #contextMenu [model]="contextItems"></p-contextMenu>
 <p-card [style]="{'margin': '4px'}" pDraggable pDroppable (onDrag)="onDrag()" (onDrop)="onDrop($event)" (contextmenu)="contextMenu.show($event)">
-  <div class="m-0">
+  <div class="m-0" style="display: flex; flex-direction: column;">
     <textarea pInputTextarea placeholder="Enter description for card" class="card-title" [autoResize]="true"
               style="background: transparent none;"
               [(ngModel)]="model.description" (ngModelChange)="table.saveToCookie()"></textarea>
+    <button pButton pRipple icon="pi pi-ellipsis-h" style="align-self: flex-end; border: none; background: transparent; color: black" (click)="contextMenu.show($event)"></button>
   </div>
 </p-card>
+
+<p-contextMenu #contextMenu [model]="contextItems"></p-contextMenu>
