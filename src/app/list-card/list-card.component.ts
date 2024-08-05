@@ -38,4 +38,9 @@ export class ListCardComponent {
     }
     this.table.saveToCookie();
   }
+
+  delete() {
+    this.table.cardList.splice(this.table.cardList.indexOf(this.model), 1);
+    this.table.saveToCookie();
+  }
 }
