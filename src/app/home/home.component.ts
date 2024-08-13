@@ -12,6 +12,13 @@ export class HomeComponent {
   @Input() cardList: ListCardModel[] = [];
   menuBar: any[] = [];
 
+  constructor(private cookieService: CookieService, private sharedService: SharedService) {
+    let saved = this.cookieService.get("table");
+    if (saved.length === 0) return;
+
+    this.cardList = JSON.parse(saved);
+  }
+
   ngAfterContentInit() {
     this.setMenuBar();
   }
@@ -23,13 +30,6 @@ export class HomeComponent {
         items: [...this.contributors()]
       }
     ];
-  }
-
-  constructor(private cookieService: CookieService, private sharedService: SharedService) {
-    let saved = this.cookieService.get("table");
-    if (saved.length === 0) return;
-
-    this.cardList = JSON.parse(saved);
   }
 
   saveToCookie() {
@@ -70,7 +70,8 @@ export class HomeComponent {
   }
 
   public contributors() {
-    let contributors = ["Unassigned", ...this.getContributors()];
+    //let contributors = ["Unassigned", ...this.getContributors()]; TODO
+    let contributors = this.getContributors();
     return contributors.map(e => ({
       label: e, icon: this.sharedService.assignedFilter.includes(e) ? 'pi pi-fw pi-check' : '', command: () => {
         if (this.sharedService.assignedFilter.includes(e)) {

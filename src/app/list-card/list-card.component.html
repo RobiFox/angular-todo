@@ -4,7 +4,7 @@
       <button pButton pRipple class="p-button-danger" icon="pi pi-trash" style="flex-shrink: 0;"  (mouseup)="delete()"></button>
   </div>
   <div class="m-0">
-    <app-individual-card *ngFor="let card of model.cards" [model]="card"></app-individual-card>
+    <app-individual-card *ngFor="let card of filteredCards()" [model]="card"></app-individual-card>
     <button pButton pRipple style="width: 100%" class="p-button-help" icon="pi pi-plus" (mouseup)="newCard()"></button>
   </div>
 </p-card>

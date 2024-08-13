@@ -3,6 +3,7 @@ import {IndividualCardComponent} from "../individual-card/individual-card.compon
 import {SharedService} from "../shared.service";
 import {ListCardModel} from "./list-card.model";
 import {HomeComponent} from "../home/home.component";
+import {IndividualCardModel} from "../individual-card/individual-card.model";
 
 @Component({
   selector: 'app-list-card',
@@ -13,6 +14,15 @@ export class ListCardComponent {
   @Input() model!: ListCardModel;
 
   constructor(private sharedService: SharedService, @Optional() @SkipSelf() public table: HomeComponent) {}
+
+  filteredCards(): IndividualCardModel[] {
+    let result: IndividualCardModel[] = this.model.cards;
+    console.log("filter " + this.sharedService.assignedFilter.length);
+    if(this.sharedService.assignedFilter.length > 0) {
+      result = result.filter(card => card.contributor != null && this.sharedService.assignedFilter.includes(card.contributor));
+    }
+    return result;
+  }
 
   onDrop() {
     console.log("card dropped here");
