@@ -12,6 +12,8 @@ Live demo at [todo.robi.zip](https://todo.robi.zip)
 - Multiple lists and cards
 - Drag and drop between lists
 - Colorable cards
+- Card Description, Assigned Member
+  - Assigned Member Filter 
 
 ## Missing features
 - Reorderable lists
@@ -24,6 +26,8 @@ Live demo at [todo.robi.zip](https://todo.robi.zip)
   - Currently the text is barely visible when the background color's value is around 0.5
 - Better scroll bar
   - Scrollbar should be per list instead of the whole page
+- Select all, unselect all menubar
+  - Both for cards and Filter 
 
 ## Considered ideas
 - Multiple tables (should be easy to do)
