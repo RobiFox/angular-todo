@@ -1,4 +1,4 @@
-import {Component, Input, Optional, Renderer2, SkipSelf, ViewChild} from '@angular/core';
+import {Component, ElementRef, Input, Optional, Renderer2, SkipSelf, ViewChild} from '@angular/core';
 import {SharedService} from "../shared.service";
 import {ListCardComponent} from "../list-card/list-card.component";
 import {IndividualCardModel} from "./individual-card.model";
@@ -13,6 +13,7 @@ import {share} from "rxjs";
 })
 export class IndividualCardComponent {
   @Input() model!: IndividualCardModel;
+  @ViewChild("descriptionTextArea") descriptionTextArea!: HTMLTextAreaElement;
   protected contextItems!: MenuItem[];
   public displayColorPicker: boolean = false;
   public displayAdvanced: boolean = false;
@@ -48,8 +49,16 @@ export class IndividualCardComponent {
     return this.sharedService.multiSelected.includes(this);
   }
 
+  truncatedDescription() {
+    let text = this.model.description;
+    if(text === null || text === undefined) return "";
+    if (text.length > 100) {
+      text = text.substring(0, 100) + '...';
+    }
+    return text;
+  }
+
   cardClick(event: MouseEvent) {
-    console.log("mouse up");
     if(event.shiftKey) {
       if (this.isMultiSelected()) {
         this.sharedService.multiSelected.splice(this.sharedService.multiSelected.indexOf(this), 1);
@@ -58,6 +67,7 @@ export class IndividualCardComponent {
       }
       return;
     }
+    if(event.button !== 0) return;
     this.sharedService.multiSelected = [];
     this.displayAdvanced = true;
   }

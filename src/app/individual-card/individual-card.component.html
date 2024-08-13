@@ -5,12 +5,18 @@
         (mouseup)="cardClick($event);">
   <div class="m-0" style="display: flex; flex-direction: column;">
     <textarea pInputTextarea placeholder="Enter title for card" class="card-desc" [autoResize]="true"
-              style="background: transparent none;"
+              style="background: transparent none; margin: 0; padding: 0"
+              (mouseup)="$event.stopPropagation()"
               [style]="{'background': 'transparent none', 'color': contrastingColor(model.color ?? '#ffffff')}"
               [(ngModel)]="model.title" (ngModelChange)="table.saveToCookie()"></textarea>
-    <button pButton pRipple icon="pi pi-ellipsis-h" [style]="{'color': contrastingColor(model.color ?? '#ffffff')}"
-            style="align-self: flex-end; border: none; background: transparent;"
-            (click)="contextMenu.show($event);" (mouseup)="$event.stopPropagation();"></button>
+    <p style="font-size: 12px">{{truncatedDescription()}}</p>
+    <p-divider></p-divider>
+    <div style="display: flex; flex-direction: row; width: 100%">
+      <p style="margin: 0; padding: 0;">{{model.contributor}}</p>
+      <button pButton pRipple icon="pi pi-ellipsis-h" [style]="{'color': contrastingColor(model.color ?? '#ffffff')}"
+              style="justify-content: end; border: none; background: transparent; margin-left: auto; align-self: center"
+              (click)="contextMenu.show($event);" (mouseup)="$event.stopPropagation();"></button>
+    </div>
   </div>
 </p-card>
 
@@ -42,10 +48,10 @@
 <p-dialog resizable="false" [(visible)]="displayAdvanced">
   <div>
   <textarea pInputTextarea placeholder="Enter title for card" class="card-desc" [autoResize]="true"
-            style="background: transparent none; min-height: 40px"
+            style="background: transparent none; min-height: 40px; font-size: 24px"
             [style]="{'background': 'transparent none', 'font-weight': 'bold'}"
             [(ngModel)]="model.title" (ngModelChange)="table.saveToCookie()"></textarea>
-    <textarea pInputTextarea placeholder="Enter description for card" class="card-desc" [autoResize]="true"
+    <textarea #descriptionTextArea pInputTextarea placeholder="Enter description for card" class="card-desc" [autoResize]="true"
               style="background: transparent none; min-height: 40px"
               [style]="{'background': 'transparent none'}"
               [(ngModel)]="model.description" (ngModelChange)="table.saveToCookie()"></textarea>

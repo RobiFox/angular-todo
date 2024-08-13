@@ -21,6 +21,7 @@ import {ColorPickerModule} from "primeng/colorpicker";
 import {VirtualScrollerModule} from "primeng/virtualscroller";
 import {SidebarModule} from "primeng/sidebar";
 import {MenubarModule} from "primeng/menubar";
+import {DividerModule} from "primeng/divider";
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import {MenubarModule} from "primeng/menubar";
     ColorPickerModule,
     VirtualScrollerModule,
     SidebarModule,
-    MenubarModule
+    MenubarModule,
+    DividerModule
   ],
   providers: [CookieService],
   bootstrap: [AppComponent]
