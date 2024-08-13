@@ -14,7 +14,7 @@
   box-shadow: none;
 }
 
-:host:hover {
+.card-root:hover {
   cursor: grab;
 }
 

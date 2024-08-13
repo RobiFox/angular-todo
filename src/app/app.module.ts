@@ -19,6 +19,8 @@ import {ContextMenuModule} from "primeng/contextmenu";
 import {DialogModule} from "primeng/dialog";
 import {ColorPickerModule} from "primeng/colorpicker";
 import {VirtualScrollerModule} from "primeng/virtualscroller";
+import {SidebarModule} from "primeng/sidebar";
+import {MenubarModule} from "primeng/menubar";
 
 @NgModule({
   declarations: [
@@ -27,23 +29,25 @@ import {VirtualScrollerModule} from "primeng/virtualscroller";
     ListCardComponent,
     IndividualCardComponent
   ],
-    imports: [
-        BrowserModule,
-        BrowserAnimationsModule,
-        AppRoutingModule,
-        Button,
-        CardModule,
-        InputTextModule,
-        InputTextareaModule,
-        DragDropModule,
-        Ripple,
-        ButtonDirective,
-        FormsModule,
-        ContextMenuModule,
-        DialogModule,
-        ColorPickerModule,
-        VirtualScrollerModule
-    ],
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    AppRoutingModule,
+    Button,
+    CardModule,
+    InputTextModule,
+    InputTextareaModule,
+    DragDropModule,
+    Ripple,
+    ButtonDirective,
+    FormsModule,
+    ContextMenuModule,
+    DialogModule,
+    ColorPickerModule,
+    VirtualScrollerModule,
+    SidebarModule,
+    MenubarModule
+  ],
   providers: [CookieService],
   bootstrap: [AppComponent]
 })

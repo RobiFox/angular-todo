@@ -10,6 +10,7 @@ export class SharedService {
   draggedComponent$ = this.draggedComponent.asObservable();
 
   public multiSelected: IndividualCardComponent[] = [];
+  public assignedFilter: string[] = [];
 
   setDraggedComponent(component: any) {
     this.draggedComponent.next(component);

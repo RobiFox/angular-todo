@@ -15,6 +15,7 @@ export class IndividualCardComponent {
   @Input() model!: IndividualCardModel;
   protected contextItems!: MenuItem[];
   public displayColorPicker: boolean = false;
+  public displayAdvanced: boolean = false;
 
   constructor(protected sharedService: SharedService,
               @Optional() @SkipSelf() public listCard: ListCardComponent,
@@ -58,6 +59,7 @@ export class IndividualCardComponent {
       return;
     }
     this.sharedService.multiSelected = [];
+    this.displayAdvanced = true;
   }
 
   onDrag() {

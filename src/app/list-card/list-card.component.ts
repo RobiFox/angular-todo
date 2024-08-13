@@ -25,7 +25,7 @@ export class ListCardComponent {
 
   newCard() {
     console.log("pressed");
-    this.model.cards.push({description: ""});
+    this.model.cards.push({title: ""});
   }
 
   moveCardToMe(card: IndividualCardComponent, index: number) {

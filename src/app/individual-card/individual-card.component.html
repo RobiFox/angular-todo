@@ -1,11 +1,13 @@
-<p-card [style]="{'margin': '4px', 'background-color': model.color ?? '#ede9e8', 'outline': isMultiSelected() ? '3px solid rgba(0, 0, 127, 0.5)' : 'none'}" pDraggable pDroppable
+<p-card class="card-root"
+        [style]="{'margin': '4px', 'background-color': model.color ?? '#ede9e8', 'outline': isMultiSelected() ? '3px solid rgba(0, 0, 127, 0.5)' : 'none'}"
+        pDraggable pDroppable
         (onDrag)="onDrag()" (onDrop)="onDrop($event)" (contextmenu)="contextMenu.show($event)"
         (mouseup)="cardClick($event);">
   <div class="m-0" style="display: flex; flex-direction: column;">
-    <textarea pInputTextarea placeholder="Enter description for card" class="card-desc" [autoResize]="true"
+    <textarea pInputTextarea placeholder="Enter title for card" class="card-desc" [autoResize]="true"
               style="background: transparent none;"
               [style]="{'background': 'transparent none', 'color': contrastingColor(model.color ?? '#ffffff')}"
-              [(ngModel)]="model.description" (ngModelChange)="table.saveToCookie()"></textarea>
+              [(ngModel)]="model.title" (ngModelChange)="table.saveToCookie()"></textarea>
     <button pButton pRipple icon="pi pi-ellipsis-h" [style]="{'color': contrastingColor(model.color ?? '#ffffff')}"
             style="align-self: flex-end; border: none; background: transparent;"
             (click)="contextMenu.show($event);" (mouseup)="$event.stopPropagation();"></button>
@@ -13,7 +15,9 @@
 </p-card>
 
 <p-contextMenu #contextMenu [model]="contextItems"></p-contextMenu>
-<p-dialog resizable="false" header="Color Picker for {{model.description}} {{sharedService.multiSelected.length > 0 ? ' and ' + sharedService.multiSelected.length + ' cards' : ''}}" [(visible)]="displayColorPicker">
+<p-dialog resizable="false"
+          header="Color Picker for {{model.title}} {{sharedService.multiSelected.length > 0 ? ' and ' + sharedService.multiSelected.length + ' cards' : ''}}"
+          [(visible)]="displayColorPicker">
   <div style="display: flex; flex-direction: row">
     <div>
       <p-colorPicker inline="true" [(ngModel)]="model.color"
@@ -24,9 +28,27 @@
       Quick colors
       <p-virtualScroller [value]="displayColorPicker ? table.getColors() : []" [itemSize]="50" scrollHeight="300px">
         <ng-template pTemplate="item" let-col>
-          <button pButton pRipple [style]="{'background-color': col, 'color': contrastingColor(model.color ?? '#ffffff')}" (click)="colorChange(col)">{{col}}</button>
+          <button pButton pRipple
+                  [style]="{'background-color': col, 'color': contrastingColor(model.color ?? '#ffffff')}"
+                  (click)="colorChange(col)">{{ col }}
+          </button>
         </ng-template>
       </p-virtualScroller>
     </div>
+  </div>
+</p-dialog>
+
+
+<p-dialog resizable="false" [(visible)]="displayAdvanced">
+  <div>
+  <textarea pInputTextarea placeholder="Enter title for card" class="card-desc" [autoResize]="true"
+            style="background: transparent none; min-height: 40px"
+            [style]="{'background': 'transparent none', 'font-weight': 'bold'}"
+            [(ngModel)]="model.title" (ngModelChange)="table.saveToCookie()"></textarea>
+    <textarea pInputTextarea placeholder="Enter description for card" class="card-desc" [autoResize]="true"
+              style="background: transparent none; min-height: 40px"
+              [style]="{'background': 'transparent none'}"
+              [(ngModel)]="model.description" (ngModelChange)="table.saveToCookie()"></textarea>
+    <input type="text" pInputText [(ngModel)]="model.contributor" placeholder="Enter assigned member name" (input)="table.setMenuBar()"/>
   </div>
 </p-dialog>
