@@ -26,4 +26,18 @@ export class HomeComponent {
     this.cardList.push({"title": "", "cards": []});
     this.saveToCookie();
   }
+
+  public getColors() : string[] {
+    let colors: string[] = [];
+    for(let i = 0; i < this.cardList.length; i++) {
+      for(let j = 0; j < this.cardList[i].cards.length; j++) {
+        let c = this.cardList[i].cards[j].color;
+        if(c != null && !colors.includes(c)) {
+          colors.push(c);
+        }
+      }
+    }
+    console.log(colors);
+    return colors;
+  }
 }

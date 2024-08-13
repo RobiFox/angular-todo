@@ -4,6 +4,7 @@ import {ListCardComponent} from "../list-card/list-card.component";
 import {IndividualCardModel} from "./individual-card.model";
 import {HomeComponent} from "../home/home.component";
 import {MenuItem} from "primeng/api";
+import {share} from "rxjs";
 
 @Component({
   selector: 'app-individual-card',
@@ -15,7 +16,7 @@ export class IndividualCardComponent {
   protected contextItems!: MenuItem[];
   public displayColorPicker: boolean = false;
 
-  constructor(private sharedService: SharedService,
+  constructor(protected sharedService: SharedService,
               @Optional() @SkipSelf() public listCard: ListCardComponent,
               @Optional() @SkipSelf() public table: HomeComponent) {
   }
@@ -40,6 +41,23 @@ export class IndividualCardComponent {
         }
       }
     ]
+  }
+
+  isMultiSelected(): boolean {
+    return this.sharedService.multiSelected.includes(this);
+  }
+
+  cardClick(event: MouseEvent) {
+    console.log("mouse up");
+    if(event.shiftKey) {
+      if (this.isMultiSelected()) {
+        this.sharedService.multiSelected.splice(this.sharedService.multiSelected.indexOf(this), 1);
+      } else {
+        this.sharedService.multiSelected.push(this);
+      }
+      return;
+    }
+    this.sharedService.multiSelected = [];
   }
 
   onDrag() {
@@ -113,4 +131,16 @@ export class IndividualCardComponent {
     let value = v.toString(16).padStart(2, '0').toUpperCase();
     return `#${value}${value}${value}`;
   }
+
+  colorChange(color?: string) {
+    if(color != null) {
+      this.model.color = color;
+    }
+    this.sharedService.multiSelected.forEach(s => {
+      s.model.color = this.model.color;
+    });
+    this.table.saveToCookie();
+  }
+
+  protected readonly share = share;
 }

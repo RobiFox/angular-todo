@@ -8,6 +8,9 @@ import {IndividualCardComponent} from "./individual-card/individual-card.compone
 export class SharedService {
   private draggedComponent = new BehaviorSubject<IndividualCardComponent | null>(null);
   draggedComponent$ = this.draggedComponent.asObservable();
+
+  public multiSelected: IndividualCardComponent[] = [];
+
   setDraggedComponent(component: any) {
     this.draggedComponent.next(component);
   }

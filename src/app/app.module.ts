@@ -18,6 +18,7 @@ import {CookieService} from "ngx-cookie-service";
 import {ContextMenuModule} from "primeng/contextmenu";
 import {DialogModule} from "primeng/dialog";
 import {ColorPickerModule} from "primeng/colorpicker";
+import {VirtualScrollerModule} from "primeng/virtualscroller";
 
 @NgModule({
   declarations: [
@@ -26,22 +27,23 @@ import {ColorPickerModule} from "primeng/colorpicker";
     ListCardComponent,
     IndividualCardComponent
   ],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    AppRoutingModule,
-    Button,
-    CardModule,
-    InputTextModule,
-    InputTextareaModule,
-    DragDropModule,
-    Ripple,
-    ButtonDirective,
-    FormsModule,
-    ContextMenuModule,
-    DialogModule,
-    ColorPickerModule
-  ],
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        AppRoutingModule,
+        Button,
+        CardModule,
+        InputTextModule,
+        InputTextareaModule,
+        DragDropModule,
+        Ripple,
+        ButtonDirective,
+        FormsModule,
+        ContextMenuModule,
+        DialogModule,
+        ColorPickerModule,
+        VirtualScrollerModule
+    ],
   providers: [CookieService],
   bootstrap: [AppComponent]
 })
